@@ -41,6 +41,12 @@ app.get('/register',function(req,res){
   res.render('register',{dangnhap:taikhoan});
 });
 
+app.get('/about',function(req,res){
+  var taikhoan=dangnhap(req,res);
+  res.render('about',{dangnhap:taikhoan});
+});
+
+
 app.get('/feedback',async(req,res)=>{
   var taikhoan=dangnhap(req,res);
   var feedback= await FB.select();
