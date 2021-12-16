@@ -1,0 +1,72 @@
+<%- include('header')%>
+        <!-- Start breadcumb Area -->
+        <div class="page-area">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb text-center">
+                            <div class="section-headline white-headline">
+                                <h3>Đánh giá</h3>
+                            </div>
+                            <ul class="breadcrumb-bg">
+                                <li class="home-bread">Home</li>
+                                <li>Đánh giá</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End breadcumb Area -->
+         <!--Blog Area Start-->
+         <div class="blog-area fix page-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="blog-details">
+						<div class="col-md-8 col-sm-8 col-xs-12">
+							<!-- single-blog start -->
+							<%-feedback%>
+                            
+							<div class="clear"></div>
+							
+							<div class="clear"></div>
+							<div class="single-post-comments">
+								
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="blog-pagination">
+                                        <ul class="pagination">
+                                           <li><a href="#">Prev</a></li>
+                                           <li class="active"><a href="#">1</a></li>
+                                           <li><a href="#">2</a></li>
+                                           <li><a href="#">3</a></li>
+                                           <li><a href="#">Next</a></li>
+                                        </ul>
+                                    </div>	
+                                </div>					
+							</div>
+							<!-- single-blog end -->
+						</div>
+                        <!-- Start Right Sidebar blog -->
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<div class="comment-respond">
+                                <h3 class="comment-reply-title">Gửi đánh giá </h3>
+                                <span class="email-notes">Bạn có thể để lại đánh giá tại đây, hoặc những ý kiến đóng góp giúp chúng tôi hoàn thiện hơn. Cám ơn bạn!</span>
+                                <form action="/feedback" method="POST">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 comment-form-comment">
+                                            <textarea id="message-box" cols="30" rows="10" name="fback"></textarea>
+                                            <input class="add-btn contact-btn" type="submit" value="Gửi đánh giá" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>		
+						</div>
+                    </div>
+                    <!-- End Right Sidebar -->
+                </div>
+                <!-- End row -->
+            </div>
+        </div>
+<!-- Footer Start -->
+<%- include('footer')%>

@@ -1,0 +1,70 @@
+<!--header-->
+<%- include('header')%>
+        <!-- Start breadcumb Area -->
+        <div class="page-area">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb text-center">
+                            <div class="section-headline white-headline">
+                                <h3>Đăng nhập</h3>
+                            </div>
+                            <ul class="breadcrumb-bg">
+                                <li class="home-bread">Home</li>
+                                <li>Đăng nhập</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End breadcumb Area -->
+        <!-- Start Slider Area -->
+        <div class="login-area page-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="login-page">
+                            <div class="login-form">
+                                <h4 class="login-title">ĐĂNG NHẬP</h4>
+                                <div class="row">
+                                    <form id="contactForm" method="POST" action="/login" class="log-form">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Username" required data-error="Hãy nhập tên đăng nhập của bạn!">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required data-error="Hãy nhập mật khẩu của bạn!">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="check-group flexbox">
+                                                <label class="check-box">
+                                                    <input type="checkbox" class="check-box-input" checked>
+                                                    <span class="remember-text">Ghi nhớ đăng nhập</span>
+                                                </label>
+
+                                                <a class="text-muted" href="#">Quên mật khẩu</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <button type="submit" id="submit" class="login-btn">Đăng nhập</button>
+                                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="clear"></div>
+                                            <div class="sign-icon">
+                                                <div class="acc-not">Bạn chưa có tài khoản?  <a href="/register"> Đăng kí</a> ngay</div>
+                                            </div> 
+                                        </div> 
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+		<!-- all js here -->
+<!-- Footer Start -->
+<%- include('footer')%>

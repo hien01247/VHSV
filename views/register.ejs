@@ -1,0 +1,72 @@
+<!--header-->
+<%- include('header')%>
+
+        <!-- Start breadcumb Area -->
+        <div class="page-area">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcrumb text-center">
+                            <div class="section-headline white-headline">
+                                <h3>Đăng kí</h3>
+                            </div>
+                            <ul class="breadcrumb-bg">
+                                <li class="home-bread">Home</li>
+                                <li>Đăng kí</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End breadcumb Area -->
+        <!-- Start Slider Area -->
+        <div class="signup-area page-padding">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-12 col-sm-12 col-xs-12">
+                        <div class="login-page signup-page">
+                            <div class="login-form signup-form">
+                                <h4 class="login-title ">Đăng kí</h4>
+                                <div class="row">
+                                    <form id="contactForm" method="POST" action="/register" class="log-form" name="frmDangKy">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" id="name" class="form-control" placeholder="Username" name="username" required data-error="Please enter your name">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" id="name" class="form-control" placeholder="Tên" name="name" required data-error="Please enter your name">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="email" id="email" class="form-control" placeholder="Email" name="email" required data-error="Please enter your name">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="password" id="msg_subject" class="form-control" placeholder="Password" name="password"required data-error="Please enter your message subject">
+                                            <p id="noti1" style="display:none;">Password phải có độ dài ít nhất 8 kí tự</p>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="password" id="msg_subject1" class="form-control" placeholder="Nhập lại Password" name="password1"required data-error="Please enter your message subject">
+                                            <p id="noti2" style="display:none;">Password không khớp</p>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                                            <div class="check-group flexbox">
+                                                <label class="check-box">
+                                                    <input type="checkbox" class="check-box-input" checked>
+                                                    <span class="remember-text">Tôi đồng ý với các điều kiện và điều khoản</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <button type="submit" id="submit" class="login-btn" onclick="return CheckRegister()">Đăng kí</button>
+                                            <div id="msgSubmit" class="h3 hidden"></div> 
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <%- include('footer')%>        
