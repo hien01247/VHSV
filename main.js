@@ -56,6 +56,10 @@ app.get('/feedback',async(req,res)=>{
   res.render('feedback',{dangnhap:taikhoan,feedback:feedback});
 });
 
+app.get('/contact',async(req,res)=>{
+  var taikhoan=dangnhap(req,res);
+  res.render('contact',{dangnhap:taikhoan});
+});
 function dangnhap(req,res){
   var taikhoan="";
    if (req.session.user!=undefined && req.session.user!=""){
