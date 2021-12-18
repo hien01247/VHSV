@@ -1,0 +1,29 @@
+{
+    "type": "FeatureCollection",
+    "generator": "smartcity",
+    "copyright": "Smartcity",
+    "timestamp": "2021-05-27T09:28:58Z",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": { "Building name": "mái cổng chính", "height": 3050, "idb": "7", "color": "red" },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                       
+                        [106.80098391036687,10.8751640108646,52.5],
+                        [106.80104801414541,10.875164010861752,52],
+                        [106.80103890787764,10.87499337392948,52],
+                        [106.80097480413572,10.874993373932327,52.5]                       
+    
+                    ]
+    
+                ]
+    
+            },
+            "id": "pp7"
+        }]
+}
+
+

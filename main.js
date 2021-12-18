@@ -19,6 +19,7 @@ const { Console } = require('console');
 const { render } = require('ejs');
 var User=require('./controllers/usercontroller');
 var FB=require('./controllers/feedbackcontroller');
+var js=require('./controllers/jsonController');
 const { redirect } = require('express/lib/response');
 
 app.get('/',function(req,res){
@@ -26,8 +27,10 @@ app.get('/',function(req,res){
   res.render('index',{dangnhap:taikhoan});
 });
 
-app.get('/3D',function(req,res){
+app.get('/3D',async(req,res)=>{
   var taikhoan=dangnhap(req,res);
+  var json=await js.select();
+  console.log(json);
   res.render('3D',{dangnhap:taikhoan});
 });
 
@@ -61,7 +64,7 @@ function dangnhap(req,res){
               +"<button class='dropbtn'>"+tenkh+"</button>"
               +"<div class='dropdown-content'>"
               +"<a href='#'>Tài khoản</a>"
-              +"<a href='/loagout'>Đăng xuất</a>"
+              +"<a href='/logout'>Đăng xuất</a>"
               +"</div>"
               +"</div>"
       // taikhoan=taikhoan+ "<div class='header-right-link dropdown'>"
@@ -179,13 +182,11 @@ app.post('/feedback', async(req,res)=>{
     console.log(username);
     console.log(fback);
     fb= FB.insert({username:username,date:date,fback:fback});
-    res.redirect('/')
-    
+    res.redirect('/feedback')
   }
   else{
     res.redirect('/login')
   }
-	
 });
 
  app.listen(8000);

@@ -82,9 +82,7 @@
 			// request json
 			
 
-
-			// geojson layer
-			const geojsonLayer = new GeoJSONLayer({
+    		const geojsonLayer = new GeoJSONLayer({
                 url: "/gis/data.geojson",
                 renderer: {
                     type: "simple",
@@ -92,9 +90,9 @@
                         type: "polygon-3d",
                         symbolLayers: [{
                             type: "extrude",
-                            size: 5.00000,
+                            size: 4.50000,
                             material: {
-                                color: "#00FFFF"
+                                color: "#99FFFF"
                             },
                             edges: {
                                 type: "solid", // autocasts as new SolidEdges3D()
@@ -126,6 +124,107 @@
                 }
             });
 
+            const truchinh = new GeoJSONLayer({
+                url: "/gis/tru.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 10.00000,
+                            material: {
+                                color: "#FFFFFF"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+            const tru = new GeoJSONLayer({
+                url: "/gis/data_tru.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 5.00000,
+                            material: {
+                                color: "#FFFFFF"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+            const tru_tang_5 = new GeoJSONLayer({
+                url: "/gis/data_tru_5.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 5.00000,
+                            material: {
+                                color: "#FFFFFF"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+            const tangthuong = new GeoJSONLayer({
+                url: "/gis/tang_thuong.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 0.40000,
+                            material: {
+                                color: "#FFFFFF"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+            const maicongchinh = new GeoJSONLayer({
+                url: "/gis/mai_cong_chinh.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 0.250000,
+                            material: {
+                                color: "#FFFFFF"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+
 			const day = new GeoJSONLayer({
                 url: "/gis/data_day.geojson",
                 renderer: {
@@ -134,9 +233,29 @@
                         type: "polygon-3d",
                         symbolLayers: [{
                             type: "extrude",
-                            size: 1.00000,
+                            size: 1.70000,
                             material: {
                                 color: "#00CC33"
+                            },
+                            edges: {
+                                type: "solid", // autocasts as new SolidEdges3D()
+                                color: [50, 50, 50, 0.5]
+                            },
+                        }]
+                    }
+                }
+            });
+            const bac_thang = new GeoJSONLayer({
+                url: "/gis/bac_thang.geojson",
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "polygon-3d",
+                        symbolLayers: [{
+                            type: "extrude",
+                            size: 0.7,
+                            material: {
+                                color: "#CCCCCC"
                             },
                             edges: {
                                 type: "solid", // autocasts as new SolidEdges3D()
@@ -150,19 +269,20 @@
 			const map = new Map({
                 basemap: "topo-vector",
                 ground: "world-elevation",
-                layers: [geojsonLayer,khungtang,day] //end layers
+                layers: [geojsonLayer,khungtang,truchinh,tru,tru_tang_5,maicongchinh,tangthuong,day,bac_thang] //end layers
             });
 
             const view = new SceneView({
                 container: "viewDiv",
                 map: map,
                 camera: {
-                    position: [106.80061263726, 10.875102831870649, 400],
-                    heading: 0,
-                    tilt: 5
+                    position: [106.803838, 10.875093, 300],
+                    heading: 275,
+                    tilt: 50
                 }
             });
-esriRequest('/gis/data.json', json_options).then(function(response) {
+
+            esriRequest('/gis/data.json', json_options).then(function(response) {
 				var graphicsLayer = new GraphicsLayer();
 				console.log(response);
 				response.data.forEach(function(data){
@@ -171,7 +291,34 @@ esriRequest('/gis/data.json', json_options).then(function(response) {
 				map.add(graphicsLayer);
 			});
 
+            //Thêm các dây nối khung của chính
+            esriRequest('/gis/line.json', json_options).then(function(response) {
+				var graphicsLayer = new GraphicsLayer();
+				console.log(response);
+				response.data.forEach(function(data){
+					graphicsLayer.add(createGraphic(data));
+				});
+				map.add(graphicsLayer);
+			});
+
+            
 			esriRequest('/gis/data_khung.json', json_options).then(function(response) {
+				var graphicsLayer = new GraphicsLayer();
+				console.log(response);
+				response.data.forEach(function(data){
+					graphicsLayer.add(createGraphic(data));
+				});
+				map.add(graphicsLayer);
+			});
+            esriRequest('/gis/background_trai.json', json_options).then(function(response) {
+				var graphicsLayer = new GraphicsLayer();
+				console.log(response);
+				response.data.forEach(function(data){
+					graphicsLayer.add(createGraphic(data));
+				});
+				map.add(graphicsLayer);
+			});
+            esriRequest('/gis/background_phai.json', json_options).then(function(response) {
 				var graphicsLayer = new GraphicsLayer();
 				console.log(response);
 				response.data.forEach(function(data){
@@ -286,11 +433,11 @@ esriRequest('/gis/data.json', json_options).then(function(response) {
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <div class="footer-content last-content">
                             <div class="footer-head">
-                                <h4>Information</h4> 
+                                <h4>Thông tin liên hệ</h4> 
                                 <div class="footer-contacts">
                                     <p><span>Điện thoại :</span> +0890-564-5644</p>
                                     <p><span>Email :</span> info@aievari4.com</p>
-                                    <p><span>Địa chỉ :</span> House- 65/4, London</p>
+                                    <p><span>Địa chỉ :</span>Khu đô thị Đại học Quốc gia TP. Hồ Chí Minh</p>
                                 </div> 
                                 <div class="footer-icons">
                                     <ul>
