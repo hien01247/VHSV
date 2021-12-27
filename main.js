@@ -15,13 +15,17 @@ app.use(session({
     saveUninitialized: true, 
     secret: '1234567abc', 
     cookie: { maxAge: 60000 }}));
+
 const { Console } = require('console');
 const { render } = require('ejs');
+
 var User=require('./controllers/usercontroller');
 var FB=require('./controllers/feedbackcontroller');
 var js=require('./controllers/jsonController');
+
 const { redirect } = require('express/lib/response');
 
+//User
 app.get('/',function(req,res){
   var taikhoan=dangnhap(req,res);
   res.render('index',{dangnhap:taikhoan});
@@ -41,7 +45,8 @@ app.get('/login',function(req,res){
 
 app.get('/register',function(req,res){
   var taikhoan=dangnhap(req,res);
-  res.render('register',{dangnhap:taikhoan});
+  var tb="";
+  res.render('register',{dangnhap:taikhoan,tb:tb});
 });
 
 app.get('/about',function(req,res){
@@ -129,7 +134,9 @@ app.post('/register', async(req,res)=>{
   var isValid=false;
   user= User.insert({name:hoten,email:email,uniquestring:uniqueString,isValid:isValid,password:matkhau,uname:tendn});
   sendMail(email,uniqueString);
-  return res.status(200).send("<p>Một email xác nhận đã được gửi đến " + email + ". Click vào link để được xác nhận đăng kí thành công.</p>");
+  var taikhoan=dangnhap(req,res);
+  var tb="Một email xác nhận đã được gửi đến " + email + ". Click vào link để được xác nhận đăng kí thành công";
+  res.render('register',{dangnhap:taikhoan,tb:tb});
 });
 
 
